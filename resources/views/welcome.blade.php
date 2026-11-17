@@ -838,6 +838,7 @@
     <section id="hobbies" class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
         <div class="mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
             <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Hobbies</h3>
+            <p class="text-purple-600 dark:text-purple-400 text-sm font-medium mt-1">music</p>
             <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Kegiatan favorit saya</p>
         </div>
         <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
