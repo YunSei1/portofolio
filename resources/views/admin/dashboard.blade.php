@@ -248,7 +248,8 @@
 
         {{-- Kelola CV --}}
         @php
-            $cvExtension = $profile?->cv_file ? strtoupper(pathinfo($profile->cv_file, PATHINFO_EXTENSION)) : null;
+            $cvPath = \App\Models\Profile::availableCvPath();
+            $cvExtension = $cvPath ? strtoupper(pathinfo($cvPath, PATHINFO_EXTENSION)) : null;
         @endphp
         <div id="cv" class="mt-6 bg-[#16161a] border border-white/10 rounded-2xl p-6 md:p-8 scroll-mt-24">
             <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
@@ -265,7 +266,7 @@
                     </p>
                 </div>
 
-                @if($profile?->cv_file)
+                @if($cvPath)
                     <span class="inline-flex items-center gap-2 self-start text-xs font-semibold text-green-400 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1.5">
                         <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
                         CV Aktif
@@ -278,7 +279,7 @@
                 @endif
             </div>
 
-            @if($profile?->cv_file)
+            @if($cvPath)
                 <div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0b0b0f] border border-white/5 rounded-xl p-4">
                     <div class="flex items-center gap-3 min-w-0">
                         <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0">
@@ -333,7 +334,7 @@
 
                     <button type="submit" class="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-2.5 rounded-lg transition shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                        {{ $profile?->cv_file ? 'Ganti CV' : 'Upload CV' }}
+                        {{ $cvPath ? 'Ganti CV' : 'Upload CV' }}
                     </button>
                 </div>
             </form>

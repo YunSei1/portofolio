@@ -101,7 +101,7 @@
                     <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 text-xs text-slate-700 dark:text-gray-300">IoT Learner</span>
                 </div>
 
-                @if($profile?->cv_file)
+                @if(\App\Models\Profile::hasCv())
                     <a href="{{ route('cv.download') }}" data-no-transition class="mt-8 inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition shadow-[0_0_20px_rgba(147,51,234,0.25)]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         Download CV

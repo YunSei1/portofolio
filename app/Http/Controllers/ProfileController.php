@@ -143,14 +143,21 @@ class ProfileController extends Controller
     public function downloadCv()
     {
         $profile = Profile::first();
+        $cvPath = Profile::availableCvPath();
 
-        if (! $profile || ! $profile->cv_file || ! Storage::disk('public')->exists($profile->cv_file)) {
+        if (! $cvPath) {
             abort(404, 'CV belum tersedia.');
         }
 
-        $extension = pathinfo($profile->cv_file, PATHINFO_EXTENSION);
-        $filename = 'CV-' . Str::slug($profile->name ?: 'Portofolio') . ($extension ? '.' . $extension : '');
+        // Perbaiki data yang basi supaya admin dashboard menampilkan CV yang sama.
+        if ($profile && $profile->cv_file !== $cvPath) {
+            $profile->cv_file = $cvPath;
+            $profile->save();
+        }
 
-        return Storage::disk('public')->download($profile->cv_file, $filename);
+        $extension = pathinfo($cvPath, PATHINFO_EXTENSION);
+        $filename = 'CV-' . Str::slug($profile?->name ?: 'Portofolio') . ($extension ? '.' . $extension : '');
+
+        return Storage::disk('public')->download($cvPath, $filename);
     }
 }
