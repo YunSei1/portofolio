@@ -65,7 +65,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 @foreach($certificates as $certificate)
                     <div class="bg-[#16161a] border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-500">
-                        <img src="{{ $certificate->imageUrl() }}" alt="Sertifikat {{ $certificate->title }}" class="w-full h-48 object-cover opacity-80">
+                        <img src="{{ $certificate->imageUrl() }}" alt="Sertifikat {{ $certificate->title }}" class="w-full h-48 object-contain bg-[#1e1e24] opacity-80">
                         <div class="p-6">
                             <h3 class="text-lg font-bold mb-1">{{ $certificate->title }}</h3>
                             <div class="flex items-center gap-3 mb-2">

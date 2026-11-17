@@ -129,8 +129,8 @@ class AdminDashboardTest extends TestCase
 
         $certificate = Certificate::create(['title' => 'Sertifikat Uji']);
 
-        $certificate->image = 'certificates/certificate-2.svg';
-        $this->assertSame(asset('certificates/certificate-2.svg'), $certificate->imageUrl());
+        $certificate->image = 'certificates/sertifikat-asli.png';
+        $this->assertSame(asset('certificates/sertifikat-asli.png'), $certificate->imageUrl());
 
         Storage::disk('public')->put('certificates/hasil-upload.png', 'dummy');
         $certificate->image = 'certificates/hasil-upload.png';
