@@ -138,9 +138,11 @@ class ProfileController extends Controller
     }
 
     /**
-     * Download the CV for public visitors.
+     * Resolve path CV dan nama file ramah untuk response publik.
+     *
+     * @return array{0: string, 1: string}
      */
-    public function downloadCv()
+    private function resolveCv(): array
     {
         $profile = Profile::first();
         $cvPath = Profile::availableCvPath();
@@ -158,6 +160,31 @@ class ProfileController extends Controller
         $extension = pathinfo($cvPath, PATHINFO_EXTENSION);
         $filename = 'CV-' . Str::slug($profile?->name ?: 'Portofolio') . ($extension ? '.' . $extension : '');
 
+        return [$cvPath, $filename];
+    }
+
+    /**
+     * Download the CV for public visitors.
+     */
+    public function downloadCv()
+    {
+        [$cvPath, $filename] = $this->resolveCv();
+
         return Storage::disk('public')->download($cvPath, $filename);
+    }
+
+    /**
+     * Tampilkan CV PDF langsung di browser tanpa mengunduhnya.
+     */
+    public function previewCv()
+    {
+        [$cvPath, $filename] = $this->resolveCv();
+
+        // Browser tidak bisa merender DOC/DOCX secara inline.
+        if (strtolower(pathinfo($cvPath, PATHINFO_EXTENSION)) !== 'pdf') {
+            return redirect()->route('cv.download');
+        }
+
+        return Storage::disk('public')->response($cvPath, $filename, [], 'inline');
     }
 }

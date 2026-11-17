@@ -88,4 +88,15 @@ class Profile extends Model
     {
         return static::availableCvPath() !== null;
     }
+
+    /**
+     * CV bisa ditampilkan langsung di browser hanya jika berformat PDF.
+     */
+    public static function hasPdfCv(): bool
+    {
+        $path = static::availableCvPath();
+
+        return $path !== null
+            && strtolower(pathinfo($path, PATHINFO_EXTENSION)) === 'pdf';
+    }
 }

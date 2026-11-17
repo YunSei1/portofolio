@@ -292,6 +292,13 @@
                     </div>
 
                     <div class="flex items-center gap-3 shrink-0">
+                        @if(strtolower($cvExtension) === 'pdf')
+                            <a href="{{ route('cv.preview') }}" target="_blank" rel="noopener" data-no-transition class="inline-flex items-center gap-2 border border-purple-500/40 text-purple-400 hover:bg-purple-500/10 text-sm font-medium px-4 py-2 rounded-lg transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                Preview
+                            </a>
+                        @endif
+
                         <a href="{{ route('cv.download') }}" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                             Download

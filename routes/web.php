@@ -93,8 +93,9 @@ use App\Http\Controllers\GuestMessageController;
 Route::get('/kesan-pesan', [GuestMessageController::class, 'index'])->name('guestbook.index');
 Route::post('/kesan-pesan', [GuestMessageController::class, 'store'])->name('guestbook.store');
 
-// Download CV
+// Download & preview CV
 Route::get('/download-cv', [ProfileController::class, 'downloadCv'])->name('cv.download');
+Route::get('/cv/preview', [ProfileController::class, 'previewCv'])->name('cv.preview');
 
 // Detail project publik
 Route::get('/projects/{project}', [ProjectController::class, 'showPublic'])->name('projects.show');

@@ -211,14 +211,17 @@ class AdminDashboardTest extends TestCase
         $this->assertNotNull($firstPath);
         Storage::disk('public')->assertExists($firstPath);
 
-        // Tombol download muncul di halaman publik
+        // Tombol preview & download muncul di halaman publik
         $this->get('/')
             ->assertOk()
+            ->assertSee('Preview CV')
+            ->assertSee(route('cv.preview'))
             ->assertSee('Download CV')
             ->assertSee(route('cv.download'));
 
         $this->get('/about')
             ->assertOk()
+            ->assertSee('Preview CV')
             ->assertSee('Download CV');
 
         // Pengunjung bisa mengunduh CV
@@ -275,6 +278,27 @@ class AdminDashboardTest extends TestCase
         Profile::create(['name' => 'Nama CV', 'role' => 'Web Developer']);
 
         $this->get('/download-cv')->assertNotFound();
+        $this->get('/cv/preview')->assertNotFound();
+    }
+
+    public function test_cv_preview_returns_inline_pdf_response(): void
+    {
+        Storage::fake('public');
+
+        $pdf = UploadedFile::fake()->create('cv-preview.pdf', 120, 'application/pdf');
+        $cvPath = Storage::disk('public')->putFile('cv', $pdf);
+
+        Profile::create([
+            'name' => 'Nama CV',
+            'role' => 'Web Developer',
+            'cv_file' => $cvPath,
+        ]);
+
+        $response = $this->get('/cv/preview');
+
+        $response->assertOk();
+        $response->assertHeader('Content-Type', 'application/pdf');
+        $this->assertStringContainsString('inline', (string) $response->headers->get('Content-Disposition'));
     }
 
     public function test_admin_can_manage_project_details_and_public_page(): void
