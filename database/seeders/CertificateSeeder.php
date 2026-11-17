@@ -18,12 +18,14 @@ class CertificateSeeder extends Seeder
                 'issuer' => 'SMK',
                 'issue_date' => '2026-05-15',
                 'description' => 'Sertifikat kelulusan uji kompetensi keahlian jurusan RPL.',
+                'image' => 'certificate-1.png',
             ],
             [
                 'title' => 'Pelatihan Web Development',
                 'issuer' => 'Dicoding',
                 'issue_date' => '2026-01-20',
                 'description' => 'Pelatihan dasar HTML, CSS, dan JavaScript.',
+                'image' => 'certificate-2.png',
             ],
         ];
 
