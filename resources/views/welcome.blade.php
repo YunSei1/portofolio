@@ -22,13 +22,6 @@
         transform: translateX(-50%);
         z-index: -1;
     }
-    .section-number {
-        font-size: 4rem;
-        line-height: 1;
-        font-weight: 800;
-        color: transparent;
-        -webkit-text-stroke: 1px rgba(147, 51, 234, 0.35);
-    }
 </style>
     </head>
    <body class="bg-[#f5f6fa] dark:bg-[#0b0b0f] text-slate-900 dark:text-white overflow-x-hidden">
@@ -168,12 +161,9 @@
 
         {{-- 01. Biodata Singkat --}}
         <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
-            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
-                <span class="section-number">01</span>
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Biodata Singkat</h3>
-                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Siapa saya dan apa yang saya tekuni</p>
-                </div>
+            <div class="mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Biodata Singkat</h3>
+                <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Siapa saya dan apa yang saya tekuni</p>
             </div>
 
             <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
@@ -206,12 +196,9 @@
 
         {{-- 02. Riwayat Pendidikan --}}
         <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
-            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
-                <span class="section-number">02</span>
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Riwayat Pendidikan</h3>
-                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Perjalanan pendidikan formal saya</p>
-                </div>
+            <div class="mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Riwayat Pendidikan</h3>
+                <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Perjalanan pendidikan formal saya</p>
             </div>
 
             <div class="relative pl-8 sm:pl-10 flex flex-col gap-5">
@@ -264,12 +251,9 @@
 
         {{-- 03. Minat & Teknologi --}}
         <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
-            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
-                <span class="section-number">03</span>
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Minat &amp; Teknologi</h3>
-                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Bidang yang saya minati dan teknologi yang saya pelajari</p>
-                </div>
+            <div class="mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Minat &amp; Teknologi</h3>
+                <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Bidang yang saya minati dan teknologi yang saya pelajari</p>
             </div>
 
             <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
@@ -401,12 +385,9 @@
 
         {{-- 04. Pengalaman Organisasi --}}
         <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
-            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
-                <span class="section-number">04</span>
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Pengalaman Organisasi / Kepanitiaan</h3>
-                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Belajar bekerja sama dan berkoordinasi dalam tim</p>
-                </div>
+            <div class="mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Pengalaman Organisasi / Kepanitiaan</h3>
+                <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Belajar bekerja sama dan berkoordinasi dalam tim</p>
             </div>
 
             <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
@@ -435,12 +416,9 @@
 
         {{-- 05. Pengalaman PLK --}}
         <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
-            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
-                <span class="section-number">05</span>
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Pengalaman PLK</h3>
-                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Praktik di LeenGroup Company</p>
-                </div>
+            <div class="mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Pengalaman PLK</h3>
+                <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Praktik di LeenGroup Company</p>
             </div>
 
             <p class="text-slate-700 dark:text-gray-300 leading-relaxed mb-8 max-w-3xl">
@@ -484,12 +462,9 @@
 
         {{-- 06. Cita-Cita / Tujuan Karir --}}
         <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
-            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
-                <span class="section-number">06</span>
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Cita-Cita / Tujuan Karir</h3>
-                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Arah dan tujuan yang ingin saya capai</p>
-                </div>
+            <div class="mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Cita-Cita / Tujuan Karir</h3>
+                <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Arah dan tujuan yang ingin saya capai</p>
             </div>
 
             <div class="relative bg-gradient-to-br from-purple-50 dark:from-[#1a1428] to-white dark:to-[#16161a] border border-purple-500/25 rounded-3xl p-6 md:p-10 overflow-hidden">
@@ -861,12 +836,9 @@
 
     {{-- 07. Hobbies --}}
     <section id="hobbies" class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
-        <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
-            <span class="section-number">07</span>
-            <div>
-                <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Hobbies</h3>
-                <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Kegiatan favorit saya</p>
-            </div>
+        <div class="mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Hobbies</h3>
+            <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Kegiatan favorit saya</p>
         </div>
         <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
             <h4 class="text-lg font-bold mb-6">Musik</h4>
