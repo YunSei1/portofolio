@@ -148,13 +148,13 @@
                                 data-title="{{ $project->title }}"
                                 data-role="{{ $project->role }}"
                                 data-description="{{ Str::limit($project->description, 260) }}"
-                                data-image="{{ asset('storage/' . $project->image) }}"
+                                data-image="{{ $project->imageUrl() }}"
                                 data-technologies="{{ implode(', ', $technologies) }}"
                                 data-demo="{{ $project->demo_url }}"
                                 data-source="{{ $project->source_url }}"
                                 aria-label="Perbesar gambar {{ $project->title }}">
                             <div class="absolute inset-0 bg-purple-600/20 blur-[50px] rounded-full scale-90 opacity-70 z-0"></div>
-                            <img src="{{ asset('storage/' . $project->image) }}" alt="Screenshot {{ $project->title }}"
+                            <img src="{{ $project->imageUrl() }}" alt="Screenshot {{ $project->title }}"
                                  class="relative z-10 w-full aspect-[4/3] object-cover rounded-2xl border border-slate-900/10 dark:border-white/10 shadow-2xl">
                             <span class="project-card__preview-hint rounded-2xl">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>

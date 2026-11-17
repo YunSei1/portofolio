@@ -385,6 +385,13 @@ class AdminDashboardTest extends TestCase
         $this->assertCount(4, $project->documentationSteps());
         Storage::disk('public')->assertExists($project->image);
 
+        // Gambar hasil upload langsung tampil tanpa symlink public/storage.
+        $this->assertSame(route('projects.image', $project), $project->imageUrl());
+
+        $this->get(route('projects.image', $project))
+            ->assertOk()
+            ->assertHeader('Content-Type', 'image/png');
+
         // Form admin memuat seluruh field baru
         $this->actingAs($user)->get('/admin/projects/create')
             ->assertOk()
@@ -443,6 +450,38 @@ class AdminDashboardTest extends TestCase
 
         $this->assertDatabaseMissing('projects', ['id' => $project->id]);
         Storage::disk('public')->assertMissing($newPath);
+    }
+
+    public function test_project_image_falls_back_to_bundled_placeholder(): void
+    {
+        Storage::fake('public');
+
+        $project = Project::create([
+            'title' => 'Project Tanpa File',
+            'description' => 'Deskripsi project tanpa file.',
+            'image' => 'projects/hilang.png',
+            'is_published' => true,
+        ]);
+
+        $this->assertSame(asset('projects/placeholder.svg'), $project->imageUrl());
+
+        $this->get(route('projects.show', $project))
+            ->assertOk()
+            ->assertSee('projects/placeholder.svg', false);
+    }
+
+    public function test_project_image_route_returns_404_when_file_is_missing(): void
+    {
+        Storage::fake('public');
+
+        $project = Project::create([
+            'title' => 'Project Tanpa File',
+            'description' => 'Deskripsi project tanpa file.',
+            'image' => 'projects/hilang.png',
+            'is_published' => true,
+        ]);
+
+        $this->get(route('projects.image', $project))->assertNotFound();
     }
 
     public function test_public_project_page_works_with_only_required_fields(): void

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Project extends Model
 {
@@ -118,6 +119,28 @@ class Project extends Model
     public function visibilityLabel(): string
     {
         return $this->is_published ? 'Publikasi' : 'Private';
+    }
+
+    /**
+     * URL gambar yang tetap tampil walaupun storage kosong setelah deploy.
+     */
+    public function imageUrl(): string
+    {
+        $image = $this->image;
+
+        if ($image) {
+            // Aset bawaan yang ikut ter-commit di public/.
+            if (is_file(public_path($image))) {
+                return asset($image);
+            }
+
+            if (Storage::disk('public')->exists($image)) {
+                // Lewat controller agar tidak bergantung pada symlink public/storage.
+                return route('projects.image', $this);
+            }
+        }
+
+        return asset('projects/placeholder.svg');
     }
 
     /**

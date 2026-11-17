@@ -101,6 +101,9 @@ Route::get('/cv/preview', [ProfileController::class, 'previewCv'])->name('cv.pre
 // supaya tidak bergantung pada symlink public/storage.
 Route::get('/certificates/{certificate}/image', [CertificateController::class, 'image'])->name('certificates.image');
 
+// Gambar project hasil upload admin, disajikan langsung dari storage
+Route::get('/projects/{project}/image', [ProjectController::class, 'image'])->name('projects.image');
+
 // Detail project publik
 Route::get('/projects/{project}', [ProjectController::class, 'showPublic'])->name('projects.show');
 

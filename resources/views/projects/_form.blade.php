@@ -72,7 +72,7 @@
 
         @if($project?->image)
             <div class="flex items-center gap-4 mb-2">
-                <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" class="w-32 h-20 object-cover rounded-lg border border-white/10">
+                <img src="{{ $project->imageUrl() }}" alt="{{ $project->title }}" class="w-32 h-20 object-cover rounded-lg border border-white/10">
                 <p class="text-gray-500 text-xs">Gambar saat ini. Upload gambar baru untuk menggantinya.</p>
             </div>
         @endif

@@ -332,7 +332,7 @@
                         data-title="{{ $project->title }}"
                         data-role="{{ $project->role }}"
                         data-description="{{ Str::limit($project->description, 260) }}"
-                        data-image="{{ $project->image ? asset('storage/' . $project->image) : '' }}"
+                        data-image="{{ $project->image ? $project->imageUrl() : '' }}"
                         data-technologies="{{ implode(', ', $technologies) }}"
                         data-detail="{{ route('projects.show', $project) }}"
                         data-demo="{{ $project->demo_url }}"
@@ -341,7 +341,7 @@
                         <button type="button" class="project-card__media relative overflow-hidden"
                                 data-project-preview aria-label="Preview project {{ $project->title }}">
                             @if($project->image)
-                                <img src="{{ asset('storage/' . $project->image) }}" alt="Screenshot {{ $project->title }}"
+                                <img src="{{ $project->imageUrl() }}" alt="Screenshot {{ $project->title }}"
                                      class="w-full h-64 object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-700">
                             @else
                                 <div class="w-full h-64 bg-gradient-to-br from-purple-500/10 to-fuchsia-500/10 flex items-center justify-center">

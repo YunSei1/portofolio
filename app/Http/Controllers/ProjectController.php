@@ -118,6 +118,22 @@ class ProjectController extends Controller
     }
 
     /**
+     * Sajikan gambar project hasil upload langsung dari storage.
+     */
+    public function image(Project $project)
+    {
+        $path = $project->image;
+
+        if (! $path || ! Storage::disk('public')->exists($path)) {
+            abort(404);
+        }
+
+        return Storage::disk('public')->response($path, null, [
+            'Cache-Control' => 'public, max-age=31536000',
+        ], 'inline');
+    }
+
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)

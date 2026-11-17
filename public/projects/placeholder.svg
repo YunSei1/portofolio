@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Placeholder screenshot project">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="120" y="110" width="960" height="580" rx="28" fill="#ffffff" stroke="#ddd6fe" stroke-width="3"/>
+  <rect x="120" y="110" width="960" height="58" rx="28" fill="#7c3aed"/>
+  <rect x="120" y="142" width="960" height="26" fill="#7c3aed"/>
+  <circle cx="166" cy="139" r="9" fill="#fca5a5"/>
+  <circle cx="196" cy="139" r="9" fill="#fcd34d"/>
+  <circle cx="226" cy="139" r="9" fill="#86efac"/>
+  <rect x="160" y="220" width="360" height="250" rx="18" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="2"/>
+  <rect x="190" y="250" width="180" height="18" rx="9" fill="#c4b5fd"/>
+  <rect x="190" y="286" width="280" height="14" rx="7" fill="#ddd6fe"/>
+  <rect x="190" y="316" width="240" height="14" rx="7" fill="#ddd6fe"/>
+  <rect x="190" y="360" width="120" height="40" rx="20" fill="#8b5cf6"/>
+  <rect x="570" y="220" width="470" height="250" rx="18" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+  <rect x="600" y="250" width="410" height="190" rx="12" fill="#ffffff" stroke="#e0e7ff" stroke-width="2"/>
+  <path d="M620 410 l70 -70 60 50 80 -100 90 120" fill="none" stroke="#818cf8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#5b21b6" letter-spacing="3">PREVIEW PROJECT</text>
+  <text x="600" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8">Screenshot akan tampil di sini setelah diunggah</text>
+</svg>

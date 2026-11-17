@@ -199,7 +199,7 @@
                 @foreach($projects as $project)
                 <div class="bg-[#16161a] border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-500">
                     @if($project->image)
-                        <img src="{{ asset('storage/' . $project->image) }}" class="w-full h-48 object-cover opacity-80">
+                        <img src="{{ $project->imageUrl() }}" class="w-full h-48 object-cover opacity-80">
                     @else
                         <div class="w-full h-48 bg-[#1e1e24] flex items-center justify-center text-gray-500 text-sm">No Image</div>
                     @endif
