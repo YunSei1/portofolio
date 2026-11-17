@@ -298,6 +298,107 @@
             </div>
         </section>
 
+        <section id="skills" class="py-16 md:py-24 px-5 md:px-10 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="inline-block text-[11px] uppercase tracking-widest text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 mb-4">
+                Keahlian
+            </span>
+            <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-slate-900 dark:from-white to-slate-500 dark:to-gray-500 bg-clip-text text-transparent">
+                Keahlian / Skills
+            </h2>
+            <p class="text-slate-500 dark:text-gray-400">Kemampuan teknis dan non-teknis yang saya kuasai</p>
+        </div>
+
+        @php
+            $hardSkills = [
+                ['name' => 'HTML', 'level' => 90, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg'],
+                ['name' => 'CSS', 'level' => 60, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg'],
+                ['name' => 'Bootstrap', 'level' => 70, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg'],
+                ['name' => 'JavaScript', 'level' => 60, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg'],
+                ['name' => 'Tailwind CSS', 'level' => 70, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg'],
+                ['name' => 'PHP', 'level' => 70, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg'],
+                ['name' => 'MySQL', 'level' => 80, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg'],
+                ['name' => 'Figma', 'level' => 90, 'icon' => 'https://www.vectorlogo.zone/logos/figma/figma-icon.svg'],
+            ];
+
+            $softSkills = [
+                ['name' => 'Komunikasi', 'level' => 85],
+                ['name' => 'Kerja Sama Tim', 'level' => 90],
+                ['name' => 'Tanggung Jawab', 'level' => 90],
+                ['name' => 'Manajemen Waktu', 'level' => 80],
+                ['name' => 'Kepemimpinan', 'level' => 75],
+            ];
+        @endphp
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+
+            {{-- Hard Skills --}}
+            <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:border-purple-500/40 transition-colors duration-300">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-11 h-11 shrink-0 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Hard Skills</h3>
+                        <p class="text-slate-500 dark:text-gray-400 text-sm">Kemampuan teknis</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-6">
+                    @foreach($hardSkills as $skill)
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-2.5">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="w-7 h-7 shrink-0 rounded-lg bg-slate-100 dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 flex items-center justify-center">
+                                        <img src="{{ $skill['icon'] }}" alt="{{ $skill['name'] }}" class="w-4 h-4">
+                                    </span>
+                                    <span class="text-sm font-medium text-slate-700 dark:text-gray-300 truncate">{{ $skill['name'] }}</span>
+                                </div>
+                                <span class="text-sm font-mono font-semibold text-purple-600 dark:text-purple-400">{{ $skill['level'] }}%</span>
+                            </div>
+                            <div class="h-2.5 rounded-full bg-slate-200/80 dark:bg-white/5 overflow-hidden"
+                                 role="progressbar" aria-valuenow="{{ $skill['level'] }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ $skill['name'] }}">
+                                <div class="skill-progress" style="--progress: {{ $skill['level'] }}%"></div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            {{-- Soft Skills --}}
+            <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:border-purple-500/40 transition-colors duration-300">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-11 h-11 shrink-0 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center text-fuchsia-600 dark:text-fuchsia-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Soft Skills</h3>
+                        <p class="text-slate-500 dark:text-gray-400 text-sm">Kemampuan non-teknis</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-6">
+                    @foreach($softSkills as $skill)
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-2.5">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-fuchsia-500"></span>
+                                    <span class="text-sm font-medium text-slate-700 dark:text-gray-300 truncate">{{ $skill['name'] }}</span>
+                                </div>
+                                <span class="text-sm font-mono font-semibold text-fuchsia-600 dark:text-fuchsia-400">{{ $skill['level'] }}%</span>
+                            </div>
+                            <div class="h-2.5 rounded-full bg-slate-200/80 dark:bg-white/5 overflow-hidden"
+                                 role="progressbar" aria-valuenow="{{ $skill['level'] }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ $skill['name'] }}">
+                                <div class="skill-progress skill-progress--soft" style="--progress: {{ $skill['level'] }}%"></div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+        </div>
+        </section>
+
         {{-- 04. Pengalaman Organisasi --}}
         <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
             <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
@@ -408,138 +509,7 @@
             </div>
         </section>
 
-        {{-- 07. Hobbies --}}
-        <section id="hobbies" class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
-            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
-                <span class="section-number">07</span>
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Hobbies</h3>
-                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Kegiatan favorit saya</p>
-                </div>
-            </div>
-            <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
-                <h4 class="text-lg font-bold mb-6">Musik</h4>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-5">
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0FIDCNYYjNvPVimz5icugS?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen" title="Timeless"></iframe>
-                        <h5 class="font-medium text-slate-700 dark:text-gray-300 mt-3">Timeless - The Weeknd</h5>
-                        <p class="text-xs text-slate-500 dark:text-gray-400">K lagu kesukaan</p>
-                    </div>
-                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-5">
-                        <iframe style="border-radius:12px; width:100%;" src="https://open.spotify.com/embed/track/03HVXaakidVAtO5qY2ALoJ?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen" title="Mia"></iframe>
-                        <h5 class="font-medium text-slate-700 dark:text-gray-300 mt-3">Mia - Bad Bunny, Drake</h5>
-                        <p class="text-xs text-slate-500 dark:text-gray-400">K lagu kesukaan</p>
-                    </div>
-                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-5">
-                        <iframe style="border-radius:12px; width:100%;" src="https://open.spotify.com/embed/track/6EXKngefS01i0Wv7mM6GHM?utm_source=generator&si=eb25839971df4ddd" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Into You"></iframe>
-                        <h5 class="font-medium text-slate-700 dark:text-gray-300 mt-3">Into You - alt J</h5>
-                        <p class="text-xs text-slate-500 dark:text-gray-400">K lagu kesukaan</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-
-    <section id="skills" class="py-16 md:py-24 px-5 md:px-10 max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-        <span class="inline-block text-[11px] uppercase tracking-widest text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 mb-4">
-            Keahlian
-        </span>
-        <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-slate-900 dark:from-white to-slate-500 dark:to-gray-500 bg-clip-text text-transparent">
-            Keahlian / Skills
-        </h2>
-        <p class="text-slate-500 dark:text-gray-400">Kemampuan teknis dan non-teknis yang saya kuasai</p>
-    </div>
-
-    @php
-        $hardSkills = [
-            ['name' => 'HTML', 'level' => 90, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg'],
-            ['name' => 'CSS', 'level' => 60, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg'],
-            ['name' => 'Bootstrap', 'level' => 70, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg'],
-            ['name' => 'JavaScript', 'level' => 60, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg'],
-            ['name' => 'Tailwind CSS', 'level' => 70, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg'],
-            ['name' => 'PHP', 'level' => 70, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg'],
-            ['name' => 'MySQL', 'level' => 80, 'icon' => 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg'],
-            ['name' => 'Figma', 'level' => 90, 'icon' => 'https://www.vectorlogo.zone/logos/figma/figma-icon.svg'],
-        ];
-
-        $softSkills = [
-            ['name' => 'Komunikasi', 'level' => 85],
-            ['name' => 'Kerja Sama Tim', 'level' => 90],
-            ['name' => 'Tanggung Jawab', 'level' => 90],
-            ['name' => 'Manajemen Waktu', 'level' => 80],
-            ['name' => 'Kepemimpinan', 'level' => 75],
-        ];
-    @endphp
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-
-        {{-- Hard Skills --}}
-        <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:border-purple-500/40 transition-colors duration-300">
-            <div class="flex items-center gap-4 mb-8">
-                <div class="w-11 h-11 shrink-0 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold">Hard Skills</h3>
-                    <p class="text-slate-500 dark:text-gray-400 text-sm">Kemampuan teknis</p>
-                </div>
-            </div>
-
-            <div class="flex flex-col gap-6">
-                @foreach($hardSkills as $skill)
-                    <div>
-                        <div class="flex items-center justify-between gap-4 mb-2.5">
-                            <div class="flex items-center gap-3 min-w-0">
-                                <span class="w-7 h-7 shrink-0 rounded-lg bg-slate-100 dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 flex items-center justify-center">
-                                    <img src="{{ $skill['icon'] }}" alt="{{ $skill['name'] }}" class="w-4 h-4">
-                                </span>
-                                <span class="text-sm font-medium text-slate-700 dark:text-gray-300 truncate">{{ $skill['name'] }}</span>
-                            </div>
-                            <span class="text-sm font-mono font-semibold text-purple-600 dark:text-purple-400">{{ $skill['level'] }}%</span>
-                        </div>
-                        <div class="h-2.5 rounded-full bg-slate-200/80 dark:bg-white/5 overflow-hidden"
-                             role="progressbar" aria-valuenow="{{ $skill['level'] }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ $skill['name'] }}">
-                            <div class="skill-progress" style="--progress: {{ $skill['level'] }}%"></div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-
-        {{-- Soft Skills --}}
-        <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:border-purple-500/40 transition-colors duration-300">
-            <div class="flex items-center gap-4 mb-8">
-                <div class="w-11 h-11 shrink-0 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center text-fuchsia-600 dark:text-fuchsia-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold">Soft Skills</h3>
-                    <p class="text-slate-500 dark:text-gray-400 text-sm">Kemampuan non-teknis</p>
-                </div>
-            </div>
-
-            <div class="flex flex-col gap-6">
-                @foreach($softSkills as $skill)
-                    <div>
-                        <div class="flex items-center justify-between gap-4 mb-2.5">
-                            <div class="flex items-center gap-3 min-w-0">
-                                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-fuchsia-500"></span>
-                                <span class="text-sm font-medium text-slate-700 dark:text-gray-300 truncate">{{ $skill['name'] }}</span>
-                            </div>
-                            <span class="text-sm font-mono font-semibold text-fuchsia-600 dark:text-fuchsia-400">{{ $skill['level'] }}%</span>
-                        </div>
-                        <div class="h-2.5 rounded-full bg-slate-200/80 dark:bg-white/5 overflow-hidden"
-                             role="progressbar" aria-valuenow="{{ $skill['level'] }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ $skill['name'] }}">
-                            <div class="skill-progress skill-progress--soft" style="--progress: {{ $skill['level'] }}%"></div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-
-    </div>
-    </section>
 
     <section id="projects" data-reveal-ignore class="py-16 md:py-20 px-5 md:px-10 max-w-7xl mx-auto">
         <div data-reveal class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12 border-b border-slate-900/10 dark:border-white/10 pb-5">
@@ -887,6 +857,37 @@
                 </a>
             </div>
         @endif
+    </section>
+
+    {{-- 07. Hobbies --}}
+    <section id="hobbies" class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
+        <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+            <span class="section-number">07</span>
+            <div>
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Hobbies</h3>
+                <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Kegiatan favorit saya</p>
+            </div>
+        </div>
+        <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
+            <h4 class="text-lg font-bold mb-6">Musik</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-5">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0FIDCNYYjNvPVimz5icugS?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen" title="Timeless"></iframe>
+                    <h5 class="font-medium text-slate-700 dark:text-gray-300 mt-3">Timeless - The Weeknd</h5>
+                    <p class="text-xs text-slate-500 dark:text-gray-400">K lagu kesukaan</p>
+                </div>
+                <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-5">
+                    <iframe style="border-radius:12px; width:100%;" src="https://open.spotify.com/embed/track/03HVXaakidVAtO5qY2ALoJ?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen" title="Mia"></iframe>
+                    <h5 class="font-medium text-slate-700 dark:text-gray-300 mt-3">Mia - Bad Bunny, Drake</h5>
+                    <p class="text-xs text-slate-500 dark:text-gray-400">K lagu kesukaan</p>
+                </div>
+                <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-5">
+                    <iframe style="border-radius:12px; width:100%;" src="https://open.spotify.com/embed/track/6EXKngefS01i0Wv7mM6GHM?utm_source=generator&si=eb25839971df4ddd" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Into You"></iframe>
+                    <h5 class="font-medium text-slate-700 dark:text-gray-300 mt-3">Into You - alt J</h5>
+                    <p class="text-xs text-slate-500 dark:text-gray-400">K lagu kesukaan</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer class="border-t border-slate-900/10 dark:border-white/10 py-8 text-center text-slate-500 dark:text-gray-500 text-sm">
