@@ -286,12 +286,9 @@ class AdminDashboardTest extends TestCase
             ->assertSee('Preview CV')
             ->assertSee(route('cv.preview'))
             ->assertSee('Download CV')
-            ->assertSee(route('cv.download'));
-
-        $this->get('/about')
-            ->assertOk()
-            ->assertSee('Preview CV')
-            ->assertSee('Download CV');
+            ->assertSee(route('cv.download'))
+            ->assertSee('id="about"', false)
+            ->assertSee('Tentang Saya');
 
         // Pengunjung bisa mengunduh CV
         $this->get('/download-cv')

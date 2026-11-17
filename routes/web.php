@@ -65,12 +65,6 @@ Route::get('/', function (Request $request) {
     return view('welcome', compact('projects', 'certificates', 'profile', 'technologies', 'roles', 'filters', 'latestBlogs', 'blogFilters', 'blogTags'));
 });
 
-Route::get('/about', function () {
-    $profile = Profile::first();
-
-    return view('about', compact('profile'));
-})->name('about');
-
 use App\Http\Controllers\AuthController;
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');

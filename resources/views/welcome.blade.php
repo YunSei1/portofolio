@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portofolio — {{ $profile?->name ?? 'Muhammad Rizky' }}</title>
         @vite('resources/css/app.css')
         @include('partials.theme-head')
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -21,6 +22,13 @@
         transform: translateX(-50%);
         z-index: -1;
     }
+    .section-number {
+        font-size: 4rem;
+        line-height: 1;
+        font-weight: 800;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(147, 51, 234, 0.35);
+    }
 </style>
     </head>
    <body class="bg-[#f5f6fa] dark:bg-[#0b0b0f] text-slate-900 dark:text-white overflow-x-hidden">
@@ -36,7 +44,7 @@
     </button>
 
     <div id="mobileMenu" class="hidden flex md:flex absolute md:static top-full left-0 w-full md:w-auto flex-col md:flex-row gap-6 md:gap-8 text-sm text-slate-500 dark:text-gray-400 font-medium items-center bg-[#f5f6fa] dark:bg-[#0b0b0f] md:bg-transparent border-b md:border-0 border-slate-900/10 dark:border-white/10 px-5 md:px-0 py-6 md:py-0">
-        <a href="{{ route('about') }}" class="hover:text-slate-900 dark:hover:text-white transition" onclick="document.getElementById('mobileMenu').classList.add('hidden')">About</a>
+        <a href="{{ url('/') }}#about" class="hover:text-slate-900 dark:hover:text-white transition" onclick="document.getElementById('mobileMenu').classList.add('hidden')">About</a>
         <a href="#projects" class="hover:text-slate-900 dark:hover:text-white transition" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Projects</a>
         <a href="{{ route('blog.index') }}" class="hover:text-slate-900 dark:hover:text-white transition" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Blog</a>
         <a href="{{ route('guestbook.index') }}" class="hover:text-slate-900 dark:hover:text-white transition" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Guestbook</a>
@@ -133,6 +141,304 @@
 
         </div>
     </header>
+
+    {{-- Tentang Saya: konten eks-halaman About kini jadi satu dengan home --}}
+    <div id="about" class="scroll-mt-24">
+        <div class="py-16 md:py-20 px-5 md:px-10 max-w-7xl mx-auto text-center border-b border-slate-900/10 dark:border-white/10">
+            <span class="inline-block text-[11px] uppercase tracking-widest text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 mb-4">
+                Tentang Saya / About Me
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-5">
+                Lebih Kenal Saya <span class="text-slate-400 dark:text-gray-500 font-normal">/ About Me</span>
+            </h2>
+            <p class="text-slate-500 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
+                Menjembatani dunia desain dan kode. Sebagai
+                <span class="text-purple-600 dark:text-purple-400">UI/UX Designer</span> sekaligus
+                <span class="text-purple-600 dark:text-purple-400">Front-End Developer</span>, saya tidak hanya merancang
+                tampilan produk digital yang estetis dan mudah digunakan, tetapi juga membangunnya langsung menjadi
+                aplikasi web yang interaktif dan berkinerja tinggi.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3 mt-8">
+                <span class="px-3 py-1.5 rounded-lg bg-purple-500/10 border border-purple-500/30 text-xs text-purple-600 dark:text-purple-400 font-medium">UI/UX Designer</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 text-xs text-slate-700 dark:text-gray-300">Siswa PPLG</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 text-xs text-slate-700 dark:text-gray-300">Front-End Developer</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 text-xs text-slate-700 dark:text-gray-300">IoT Learner</span>
+            </div>
+        </div>
+
+        {{-- 01. Biodata Singkat --}}
+        <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
+            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <span class="section-number">01</span>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Biodata Singkat</h3>
+                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Siapa saya dan apa yang saya tekuni</p>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
+                <p class="text-slate-700 dark:text-gray-300 leading-relaxed mb-8">
+                    Saya merupakan siswa kelas XII SMK Negeri 2 Banjarmasin jurusan Pengembangan Perangkat Lunak dan Gim (PPLG).
+                    Saya memiliki ketertarikan besar terhadap teknologi, khususnya pengembangan website dan Front-End Development.
+                    Saya senang mempelajari hal baru, mengembangkan ide, serta menciptakan solusi digital yang bermanfaat.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-4">
+                        <p class="text-[11px] uppercase tracking-widest text-slate-500 dark:text-gray-500 mb-1">Nama</p>
+                        <p class="font-semibold text-sm">{{ $profile?->name ?? 'Muhammad Rizky' }}</p>
+                    </div>
+                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-4">
+                        <p class="text-[11px] uppercase tracking-widest text-slate-500 dark:text-gray-500 mb-1">Sekolah</p>
+                        <p class="font-semibold text-sm">SMK Negeri 2 Banjarmasin</p>
+                    </div>
+                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-4">
+                        <p class="text-[11px] uppercase tracking-widest text-slate-500 dark:text-gray-500 mb-1">Jurusan</p>
+                        <p class="font-semibold text-sm">PPLG</p>
+                    </div>
+                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-4">
+                        <p class="text-[11px] uppercase tracking-widest text-slate-500 dark:text-gray-500 mb-1">Fokus</p>
+                        <p class="font-semibold text-sm text-purple-600 dark:text-purple-400">Front-End Development</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{-- 02. Riwayat Pendidikan --}}
+        <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
+            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <span class="section-number">02</span>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Riwayat Pendidikan</h3>
+                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Perjalanan pendidikan formal saya</p>
+                </div>
+            </div>
+
+            <div class="relative pl-8 sm:pl-10 flex flex-col gap-5">
+                <div class="absolute left-[7px] sm:left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-purple-500/60 via-slate-900/10 dark:via-white/10 to-transparent"></div>
+
+                <div class="relative bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8 hover:border-purple-500/40 transition">
+                    <span class="absolute -left-8 sm:-left-10 top-8 w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-mono font-bold text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-lg px-2 py-1">01</span>
+                            <h4 class="text-xl font-bold">SD Sabilal Muhtadin</h4>
+                        </div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 w-fit">2015 — 2021</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">Sekolah Dasar</span>
+                    </div>
+                </div>
+
+                <div class="relative bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8 hover:border-purple-500/40 transition">
+                    <span class="absolute -left-8 sm:-left-10 top-8 w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-mono font-bold text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-lg px-2 py-1">02</span>
+                            <h4 class="text-xl font-bold">SMP Negeri 2 Banjarmasin</h4>
+                        </div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 w-fit">2021 — 2024</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">Sekolah Menengah Pertama</span>
+                    </div>
+                </div>
+
+                <div class="relative bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8 hover:border-purple-500/40 transition">
+                    <span class="absolute -left-8 sm:-left-10 top-8 w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-mono font-bold text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-lg px-2 py-1">03</span>
+                            <h4 class="text-xl font-bold">SMK Negeri 2 Banjarmasin</h4>
+                        </div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 w-fit">2024 — 2027</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">Jurusan: Pengembangan Perangkat Lunak dan Gim (PPLG)</span>
+                        <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">Kelas XII</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{-- 03. Minat & Teknologi --}}
+        <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
+            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <span class="section-number">03</span>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Minat &amp; Teknologi</h3>
+                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Bidang yang saya minati dan teknologi yang saya pelajari</p>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
+                <h4 class="text-lg font-bold mb-3">Web Development</h4>
+                <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed mb-6 max-w-3xl">
+                    Saya memiliki minat dalam bidang Web Development, khususnya Front-End Development.
+                    Saya tertarik merancang tampilan website yang menarik, responsif, dan mudah digunakan.
+                    Saya juga senang menjelajahi IoT (ESP32) dan memadukannya dengan aplikasi web.
+                </p>
+
+                <p class="text-[11px] uppercase tracking-widest text-slate-500 dark:text-gray-500 mb-3">Teknologi yang saya gunakan</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">HTML &amp; CSS</span>
+                    <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">JavaScript</span>
+                    <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">Bootstrap</span>
+                    <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">Tailwind CSS</span>
+                    <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">PHP &amp; MySQL</span>
+                    <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">IoT (ESP32)</span>
+                    <span class="text-xs text-slate-700 dark:text-gray-300 bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/10 dark:border-white/10 rounded-lg px-3 py-1.5">Figma</span>
+                </div>
+
+                <a href="#skills" class="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition">
+                    Lihat keahlian lengkap
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </section>
+
+        {{-- 04. Pengalaman Organisasi --}}
+        <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
+            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <span class="section-number">04</span>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Pengalaman Organisasi / Kepanitiaan</h3>
+                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Belajar bekerja sama dan berkoordinasi dalam tim</p>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
+                <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+                    <div class="shrink-0 w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+
+                    <div>
+                        <p class="text-slate-700 dark:text-gray-300 leading-relaxed mb-6">
+                            Saya memiliki pengalaman bekerja dalam tim dan berkoordinasi dengan anggota untuk menyelesaikan
+                            tugas serta mencapai tujuan bersama. Saya juga berusaha mengembangkan kemampuan komunikasi,
+                            tanggung jawab, kepemimpinan, dan manajemen waktu.
+                        </p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl px-4 py-3"><p class="text-xs text-slate-500 dark:text-gray-400">Komunikasi</p></div>
+                            <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl px-4 py-3"><p class="text-xs text-slate-500 dark:text-gray-400">Tanggung Jawab</p></div>
+                            <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl px-4 py-3"><p class="text-xs text-slate-500 dark:text-gray-400">Kepemimpinan</p></div>
+                            <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl px-4 py-3"><p class="text-xs text-slate-500 dark:text-gray-400">Manajemen Waktu</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{-- 05. Pengalaman PLK --}}
+        <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
+            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <span class="section-number">05</span>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Pengalaman PLK</h3>
+                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Praktik di LeenGroup Company</p>
+                </div>
+            </div>
+
+            <p class="text-slate-700 dark:text-gray-300 leading-relaxed mb-8 max-w-3xl">
+                Selama mengikuti kegiatan PLK di <span class="text-purple-600 dark:text-purple-400 font-semibold">LeenGroup Company</span>,
+                saya terlibat dalam beberapa proyek pengembangan teknologi, antara lain:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><rect width="18" height="14" x="3" y="4" rx="2"/><path d="M8 21h8M12 18v3"/><path d="m7 9 2 2-2 2M13 13h4"/></svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Teacher Portfolio Website</h4>
+                    <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed">Mengembangkan website portofolio untuk menampilkan profil dan informasi profesional guru.</p>
+                </div>
+
+                <div class="group bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m7 14 4-4 3 3 5-5"/><path d="M19 8v4h-4"/></svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Flood Infographic Website</h4>
+                    <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed">Membuat website infografis yang menyajikan informasi mengenai banjir.</p>
+                </div>
+
+                <div class="group bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><path d="M7 19H4.8a2.8 2.8 0 0 1-2.8-2.8v-1.4A2.8 2.8 0 0 1 4.8 12H7"/><path d="M17 19h2.2a2.8 2.8 0 0 0 2.8-2.8v-1.4A2.8 2.8 0 0 0 19.2 12H17"/><rect x="7" y="5" width="10" height="14" rx="2"/><path d="M10 9h4M10 12h4M10 15h2"/></svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Smart Waste ATM Machine</h4>
+                    <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed">Berpartisipasi dalam pengembangan mesin ATM sampah berbasis IoT yang mengintegrasikan perangkat keras dan perangkat lunak.</p>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-purple-500/5 border border-purple-500/20 rounded-2xl p-6 md:p-8">
+                <p class="text-slate-700 dark:text-gray-300 leading-relaxed">
+                    Melalui pengalaman tersebut, saya memperoleh pengetahuan praktis tentang pengembangan website,
+                    teknologi IoT, pemecahan masalah, dan kerja sama tim.
+                </p>
+            </div>
+        </section>
+
+        {{-- 06. Cita-Cita / Tujuan Karir --}}
+        <section class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
+            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <span class="section-number">06</span>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Cita-Cita / Tujuan Karir</h3>
+                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Arah dan tujuan yang ingin saya capai</p>
+                </div>
+            </div>
+
+            <div class="relative bg-gradient-to-br from-purple-50 dark:from-[#1a1428] to-white dark:to-[#16161a] border border-purple-500/25 rounded-3xl p-6 md:p-10 overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/20 blur-[80px] rounded-full"></div>
+                <div class="relative z-10">
+                    <span class="inline-block text-[11px] uppercase tracking-widest text-purple-600 dark:text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 mb-5">Front-End Developer</span>
+                    <p class="text-slate-700 dark:text-gray-200 text-lg md:text-xl leading-relaxed mb-6 max-w-3xl">
+                        Saya bercita-cita menjadi seorang <span class="text-slate-900 dark:text-white font-semibold">Professional Front-End Developer</span>
+                        yang mampu menciptakan website dan aplikasi dengan desain modern, responsif, serta memberikan
+                        pengalaman pengguna yang baik.
+                    </p>
+                    <p class="text-slate-500 dark:text-gray-400 leading-relaxed max-w-3xl">
+                        Ke depannya, saya ingin terus mengembangkan kemampuan di bidang teknologi, mempelajari framework
+                        dan teknologi baru, serta berkontribusi dalam menciptakan inovasi digital yang bermanfaat bagi masyarakat.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        {{-- 07. Hobbies --}}
+        <section id="hobbies" class="py-12 md:py-16 px-5 md:px-10 max-w-7xl mx-auto">
+            <div class="flex items-baseline gap-5 mb-8 border-b border-slate-900/10 dark:border-white/10 pb-4">
+                <span class="section-number">07</span>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Hobbies</h3>
+                    <p class="text-slate-500 dark:text-gray-500 text-sm mt-1">Kegiatan favorit saya</p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-[#16161a] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 md:p-8">
+                <h4 class="text-lg font-bold mb-6">Musik</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-5">
+                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0FIDCNYYjNvPVimz5icugS?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen" title="Timeless"></iframe>
+                        <h5 class="font-medium text-slate-700 dark:text-gray-300 mt-3">Timeless - The Weeknd</h5>
+                        <p class="text-xs text-slate-500 dark:text-gray-400">K lagu kesukaan</p>
+                    </div>
+                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-5">
+                        <iframe style="border-radius:12px; width:100%;" src="https://open.spotify.com/embed/track/03HVXaakidVAtO5qY2ALoJ?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen" title="Mia"></iframe>
+                        <h5 class="font-medium text-slate-700 dark:text-gray-300 mt-3">Mia - Bad Bunny, Drake</h5>
+                        <p class="text-xs text-slate-500 dark:text-gray-400">K lagu kesukaan</p>
+                    </div>
+                    <div class="bg-[#f5f6fa] dark:bg-[#0b0b0f] border border-slate-900/5 dark:border-white/5 rounded-xl p-5">
+                        <iframe style="border-radius:12px; width:100%;" src="https://open.spotify.com/embed/track/6EXKngefS01i0Wv7mM6GHM?utm_source=generator&si=eb25839971df4ddd" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Into You"></iframe>
+                        <h5 class="font-medium text-slate-700 dark:text-gray-300 mt-3">Into You - alt J</h5>
+                        <p class="text-xs text-slate-500 dark:text-gray-400">K lagu kesukaan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <section id="skills" class="py-16 md:py-24 px-5 md:px-10 max-w-7xl mx-auto">
     <div class="text-center mb-16">
