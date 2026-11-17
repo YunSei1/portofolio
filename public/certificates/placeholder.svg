@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Placeholder sertifikat">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect x="36" y="36" width="728" height="428" rx="26" fill="#ffffff" stroke="#e9d5ff" stroke-width="2" stroke-dasharray="10 8"/>
+  <circle cx="400" cy="180" r="54" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="3"/>
+  <path d="M400 145 l9 18 20 3 -14 14 3 20 -18 -10 -18 10 3 -20 -14 -14 20 -3z" fill="#a78bfa"/>
+  <text x="400" y="292" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#5b21b6" letter-spacing="6">SERTIFIKAT</text>
+  <text x="400" y="334" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#7c3aed">Portofolio Muhammad Rizky</text>
+  <text x="400" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#94a3b8">Gambar sertifikat akan ditampilkan di sini</text>
+</svg>

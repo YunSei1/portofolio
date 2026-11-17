@@ -80,9 +80,7 @@
 
                 <div class="flex flex-col gap-1.5">
                     <label class="text-xs text-gray-400 font-medium uppercase tracking-widest ml-1">Upload Gambar Sertifikat</label>
-                    @if($certificate->image)
-                        <img src="{{ asset('storage/' . $certificate->image) }}" class="w-full h-40 object-contain bg-[#1e1e24] rounded-lg border border-white/10 mb-2">
-                    @endif
+                    <img src="{{ $certificate->imageUrl() }}" alt="Sertifikat {{ $certificate->title }}" class="w-full h-40 object-contain bg-[#1e1e24] rounded-lg border border-white/10 mb-2">
                     <input type="file" name="image" accept="image/*"
                            class="text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-purple-600 file:text-white hover:file:bg-purple-700 file:transition @error('image') file:bg-red-600 @enderror">
                     <p class="text-gray-500 text-xs">Biarkan kosong jika tidak ingin mengubah gambar.</p>

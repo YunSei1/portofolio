@@ -107,6 +107,36 @@ class AdminDashboardTest extends TestCase
         $this->assertDatabaseMissing('certificates', ['title' => 'Hapus Saya']);
     }
 
+    public function test_certificate_image_falls_back_to_bundled_placeholder(): void
+    {
+        Storage::fake('public');
+
+        $certificate = Certificate::create([
+            'title' => 'Sertifikat Tanpa File',
+            'image' => 'certificate-1.png',
+        ]);
+
+        $this->assertSame(asset('certificates/placeholder.svg'), $certificate->imageUrl());
+
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('certificates/placeholder.svg', false);
+    }
+
+    public function test_certificate_image_resolves_bundled_and_uploaded_files(): void
+    {
+        Storage::fake('public');
+
+        $certificate = Certificate::create(['title' => 'Sertifikat Uji']);
+
+        $certificate->image = 'certificates/certificate-2.svg';
+        $this->assertSame(asset('certificates/certificate-2.svg'), $certificate->imageUrl());
+
+        Storage::disk('public')->put('certificates/hasil-upload.png', 'dummy');
+        $certificate->image = 'certificates/hasil-upload.png';
+        $this->assertSame(asset('storage/certificates/hasil-upload.png'), $certificate->imageUrl());
+    }
+
     public function test_contact_form_stores_message(): void
     {
         $response = $this->post('/contact', [

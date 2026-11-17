@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Sertifikat Kompetensi Keahlian">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#c026d3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect x="36" y="36" width="728" height="428" rx="26" fill="#ffffff" stroke="#ddd6fe" stroke-width="2"/>
+  <rect x="36" y="36" width="728" height="10" rx="5" fill="url(#accent)"/>
+  <circle cx="400" cy="145" r="46" fill="#f5f3ff" stroke="#a78bfa" stroke-width="3"/>
+  <path d="M400 113 l8 16 18 3 -13 13 3 18 -16 -9 -16 9 3 -18 -13 -13 18 -3z" fill="#7c3aed"/>
+  <text x="400" y="232" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#4c1d95" letter-spacing="6">SERTIFIKAT</text>
+  <text x="400" y="274" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#6d28d9">KOMPETENSI KEAHLIAN</text>
+  <line x1="300" y1="302" x2="500" y2="302" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="400" y="346" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#6b7280">Diberikan sebagai penghargaan atas penyelesaian</text>
+  <text x="400" y="374" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#6b7280">program uji kompetensi jurusan RPL.</text>
+  <text x="400" y="428" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af">SMK &#183; 2026</text>
+</svg>
