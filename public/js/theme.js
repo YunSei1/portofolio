@@ -305,13 +305,20 @@
         chat: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'
     };
 
+    // Ambil URL dari meta tag supaya mengikuti route Laravel, bukan path hardcode.
+    function metaUrl(name, fallback) {
+        var meta = document.querySelector('meta[name="' + name + '"]');
+
+        return meta && meta.content ? meta.content : fallback;
+    }
+
     var navItems = [
         { href: '/', label: 'Beranda', icon: ICONS.home, page: function (path) { return path === '/'; } },
         { href: '/about', label: 'Tentang', icon: ICONS.user, page: function (path) { return path.indexOf('/about') === 0; } },
         { href: '/#projects', label: 'Proyek', icon: ICONS.grid, section: 'projects', page: function (path) { return path.indexOf('/projects') === 0; } },
         { href: '/blog', label: 'Blog', icon: ICONS.book, page: function (path) { return path.indexOf('/blog') === 0; } },
         { href: '/kesan-pesan', label: 'Kesan', icon: ICONS.chat, page: function (path) { return path.indexOf('/kesan-pesan') === 0; } },
-        { href: '/#contact', label: 'Kontak', icon: ICONS.mail, section: 'contact', page: function (path) { return path.indexOf('/contact') === 0; } }
+        { href: metaUrl('contact-url', '/contact'), label: 'Kontak', icon: ICONS.mail, section: 'contact', page: function (path) { return path.indexOf('/contact') === 0; } }
     ];
 
     var quickNav = document.createElement('nav');

@@ -156,6 +156,26 @@ class AdminDashboardTest extends TestCase
         $this->get(route('certificates.image', $certificate))->assertNotFound();
     }
 
+    public function test_quick_nav_contact_icon_links_to_contact_page(): void
+    {
+        $contactUrl = route('contact.show');
+
+        // Quick-nav dipakai di halaman portofolio, termasuk saat admin membukanya.
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('name="contact-url"', false)
+            ->assertSee('content="' . $contactUrl . '"', false);
+
+        $this->get(route('contact.show'))
+            ->assertOk()
+            ->assertSee('content="' . $contactUrl . '"', false);
+
+        // Quick nav dibuat oleh theme.js, pastikan tidak mengarah ke anchor home lagi.
+        $js = file_get_contents(public_path('js/theme.js'));
+        $this->assertStringContainsString("metaUrl('contact-url', '/contact')", $js);
+        $this->assertStringNotContainsString("href: '/#contact'", $js);
+    }
+
     public function test_contact_form_stores_message(): void
     {
         $response = $this->post('/contact', [
