@@ -68,6 +68,13 @@ class AdminDashboardTest extends TestCase
 
         $certificate = Certificate::first();
         Storage::disk('public')->assertExists($certificate->image);
+
+        // Gambar hasil upload langsung tampil tanpa symlink public/storage.
+        $this->assertSame(route('certificates.image', $certificate), $certificate->imageUrl());
+
+        $this->get(route('certificates.image', $certificate))
+            ->assertOk()
+            ->assertHeader('Content-Type', 'image/png');
     }
 
     public function test_admin_can_update_certificate(): void
@@ -134,7 +141,19 @@ class AdminDashboardTest extends TestCase
 
         Storage::disk('public')->put('certificates/hasil-upload.png', 'dummy');
         $certificate->image = 'certificates/hasil-upload.png';
-        $this->assertSame(asset('storage/certificates/hasil-upload.png'), $certificate->imageUrl());
+        $this->assertSame(route('certificates.image', $certificate), $certificate->imageUrl());
+    }
+
+    public function test_certificate_image_route_returns_404_when_file_is_missing(): void
+    {
+        Storage::fake('public');
+
+        $certificate = Certificate::create([
+            'title' => 'Sertifikat Tanpa File',
+            'image' => 'certificates/hilang.png',
+        ]);
+
+        $this->get(route('certificates.image', $certificate))->assertNotFound();
     }
 
     public function test_contact_form_stores_message(): void

@@ -97,6 +97,10 @@ Route::post('/kesan-pesan', [GuestMessageController::class, 'store'])->name('gue
 Route::get('/download-cv', [ProfileController::class, 'downloadCv'])->name('cv.download');
 Route::get('/cv/preview', [ProfileController::class, 'previewCv'])->name('cv.preview');
 
+// Gambar sertifikat hasil upload admin, disajikan langsung dari storage
+// supaya tidak bergantung pada symlink public/storage.
+Route::get('/certificates/{certificate}/image', [CertificateController::class, 'image'])->name('certificates.image');
+
 // Detail project publik
 Route::get('/projects/{project}', [ProjectController::class, 'showPublic'])->name('projects.show');
 

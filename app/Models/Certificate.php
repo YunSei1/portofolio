@@ -47,7 +47,8 @@ class Certificate extends Model
             }
 
             if (Storage::disk('public')->exists($image)) {
-                return asset('storage/' . $image);
+                // Lewat controller agar tidak bergantung pada symlink public/storage.
+                return route('certificates.image', $this);
             }
         }
 
