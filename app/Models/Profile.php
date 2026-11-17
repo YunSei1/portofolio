@@ -30,7 +30,7 @@ class Profile extends Model
      */
     public static function storedCvPath(): ?string
     {
-        return collect(Storage::disk('public')->files('cv'))
+        $path = collect(Storage::disk('public')->files('cv'))
             ->filter(fn (string $file) => in_array(
                 strtolower(pathinfo($file, PATHINFO_EXTENSION)),
                 ['pdf', 'doc', 'docx'],
@@ -38,6 +38,22 @@ class Profile extends Model
             ))
             ->sortByDesc(fn (string $file) => Storage::disk('public')->lastModified($file))
             ->first();
+
+        if ($path) {
+            return $path;
+        }
+
+        // Deploy baru biasanya punya storage kosong (file CV tidak ikut repo).
+        // Pulihkan CV bawaan yang ikut ter-commit supaya download tetap jalan.
+        $bundled = public_path('cv/Curriculum-Vitae.pdf');
+
+        if (is_file($bundled)) {
+            Storage::disk('public')->put('cv/Curriculum-Vitae.pdf', file_get_contents($bundled));
+
+            return 'cv/Curriculum-Vitae.pdf';
+        }
+
+        return null;
     }
 
     /**
