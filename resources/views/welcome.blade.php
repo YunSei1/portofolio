@@ -32,7 +32,7 @@
     <div class="text-xl font-bold tracking-tighter">PORTOFOLIO.</div>
 
     <div class="flex items-center gap-2 md:gap-4">
-    <button id="menuBtn" class="md:hidden text-slate-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+    <button id="menuBtn" class="text-slate-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
     </button>
 

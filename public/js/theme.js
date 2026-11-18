@@ -314,7 +314,7 @@
 
     var navItems = [
         { href: '/', label: 'Beranda', icon: ICONS.home, page: function (path) { return path === '/'; } },
-        { href: '/about', label: 'Tentang', icon: ICONS.user, page: function (path) { return path.indexOf('/about') === 0; } },
+        { href: '/#about', label: 'Tentang', icon: ICONS.user, page: function (path) { return path.indexOf('/#about') === 0; } },
         { href: '/#projects', label: 'Proyek', icon: ICONS.grid, section: 'projects', page: function (path) { return path.indexOf('/projects') === 0; } },
         { href: '/blog', label: 'Blog', icon: ICONS.book, page: function (path) { return path.indexOf('/blog') === 0; } },
         { href: '/kesan-pesan', label: 'Kesan', icon: ICONS.chat, page: function (path) { return path.indexOf('/kesan-pesan') === 0; } },
