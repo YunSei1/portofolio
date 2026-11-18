@@ -129,18 +129,26 @@ class Project extends Model
         $image = $this->image;
 
         if ($image) {
-            // Aset bawaan yang ikut ter-commit di public/.
-            if (is_file(public_path($image))) {
+            // 1. Cek sebagai file fisik di public/ (aset bawaan yang ikut ter-commit).
+            $publicPath = public_path($image);
+            if (is_file($publicPath)) {
                 return asset($image);
             }
 
+            // 2. Cek di storage disk 'public' (file hasil upload via Laravel store()).
             if (Storage::disk('public')->exists($image)) {
                 // Lewat controller agar tidak bergantung pada symlink public/storage.
                 return route('projects.image', $this);
             }
+
+            // 3. Fallback: gambar placeholder bawaan yang sudah ikut ter-commit di public/projects/.
+            if (file_exists(public_path('projects/placeholder.svg'))) {
+                return asset('projects/placeholder.svg');
+            }
         }
 
-        return asset('projects/placeholder.svg');
+        // 4. Ultimate fallback: return string kosong agar tidak break tampilan.
+        return '';
     }
 
     /**
